@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service & Privacy Policy - TTS Scriptor</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Librería para convertir Markdown a HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        /* Estilos para el contenido renderizado desde Markdown */
+        #terms-content h1, #terms-content h2, #terms-content h3 { font-weight: 700; color: white; }
+        #terms-content h1 { font-size: 2.25rem; line-height: 2.5rem; margin-bottom: 1rem; }
+        #terms-content h2 { font-size: 1.5rem; line-height: 2rem; border-bottom: 1px solid #4a5568; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+        #terms-content p, #terms-content li { line-height: 1.75; margin-bottom: 1rem; }
+        #terms-content ul { list-style-type: disc; padding-left: 1.5rem; }
+        #terms-content a { color: #818cf8; text-decoration: underline; }
+        #terms-content strong { color: #c7d2fe; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased">
+
+    <div class="container mx-auto px-6 py-12 max-w-4xl">
+        <!-- El contenido se cargará aquí -->
+        <h1 id="main-title" class="text-3xl md:text-4xl font-bold mb-4 text-white">Terms of Service & Privacy Policy</h1>
+        <div id="terms-content">
+            <p>Loading document...</p>
+        </div>
+    </div>
+
+    <!-- Script para cargar y renderizar los términos -->
+    <script src="./assets/js/terms.js"></script>
+</body>
+</html>
