@@ -6,67 +6,76 @@ Please read these Terms of Service ("Terms") and our Privacy Policy carefully be
 
 ## 1. Description of Service
 
-TTS Scriptor ("the Application") is a tool that allows users to convert text scripts into audio files by integrating with third-party Text-to-Speech (TTS) services, including but not limited to Microsoft Azure Cognitive Services for Speech and Google Cloud Text-to-Speech. The Application requires users to provide their own API keys for these third-party services.
+TTS Scriptor ("the Application") is a web-based tool that runs in your browser. It allows you to convert text scripts into audio files by communicating directly from your computer to third-party Text-to-Speech (TTS) services, including but not limited to Microsoft Azure Cognitive Services for Speech and Google Cloud Text-to-Speech. The Application requires you to provide your own API keys for these third-party services, which are stored locally on your device.
 
-## 2. User Accounts and API Keys
+## 2. User Accounts
 
-**Account Creation:** You must create an account to access the Service. You are responsible for safeguarding your account password and for any activities or actions under your account.
+**Account Creation:** You must create an account to access the Service's full functionality, including saving projects to the cloud and managing subscriptions. You are responsible for safeguarding your account password and for any activities or actions under your account.
 
-**API Key Responsibility:** The core functionality of the Service relies on your personal API keys from third-party providers (Azure, Google, etc.). You are solely responsible for:
+---
 
-*   **Security:** The safekeeping and confidentiality of your API keys. We store these keys in an encrypted format, but you must not share them or expose them publicly. You are responsible for all activity that occurs under your API keys.
-*   **Costs and Usage:** All usage costs, fees, and charges incurred through the use of your API keys are your sole responsibility. TTS Scriptor is not responsible for any charges billed to you by third-party service providers. We strongly recommend you monitor your usage and set up billing alerts in your Azure and Google Cloud accounts.
-*   **Compliance:** Your use of third-party services must comply with their respective terms of service. TTS Scriptor is not liable for any violation of these terms on your part.
+**(SECCIÓN 3 MODIFICADA)**
+## 3. API Keys and Project Data (Client-Side Storage)
 
-## 3. User Data and Content
+A core principle of TTS Scriptor is user privacy and control. Your sensitive data is managed directly by you, on your own computer.
 
-**Data Backup and Responsibility:** You are solely responsible for the content you create and process through the Service (e.g., scripts, projects, generated audio files). While we strive to maintain the integrity of our platform, we are not responsible for any loss, corruption, or deletion of your data.
+**API Key Responsibility:**
+*   **Local Storage:** Your API keys for third-party services (Azure, Google, etc.) are stored **only in your web browser's local storage on your computer**. They are never transmitted to or stored on our servers. This gives you maximum security and control.
+*   **Security:** Because your keys are stored on your device, you are solely responsible for securing the computer and browser you use to access the Service. Do not use the Service on public or untrusted computers.
+*   **Costs and Usage:** All usage costs billed by third-party providers are your sole responsibility. Since API calls are made directly from your browser to the provider, TTS Scriptor has no role in this billing relationship. We strongly recommend you monitor your usage and set up billing alerts in your Azure and Google Cloud accounts.
 
-*   **We strongly advise you to regularly back up your projects and important data.** The Service provides functionality to save and load projects to your local machine, and you should use it frequently to prevent data loss.
+**Project Data and Backups:**
+*   **Local Management:** Your scripts and project data are managed and stored within your browser session. The Service provides tools to save your projects as files directly onto your computer.
+*   **Data Backup Responsibility:** You are **solely responsible for saving and backing up your work**. Since project data is not stored on our servers, we have no way to recover lost data. **We strongly advise you to save your projects to your local disk frequently to prevent data loss.**
 
-**Content Ownership:** You retain all ownership rights to the scripts you write and the audio you generate. We do not claim any ownership over your content.
+---
 
-## 4. Privacy Policy
+**(NUEVA SECCIÓN 4)**
+## 4. Subscriptions and Payments
 
-### Information We Collect
+Certain features of the Service may require a paid subscription.
 
-*   **Account Information:** When you register, we collect your email address.
-*   **API Keys:** We collect and store your encrypted API keys to facilitate communication with third-party services on your behalf.
-*   **Project Data:** We store your script and project data to provide the core functionality of the application.
-*   **Usage Data:** We may collect anonymous data about your interaction with the Service to improve its functionality.
+*   **Billing:** We use a third-party payment processor, Stripe, to handle all subscription payments. We do not store your credit card details. By subscribing, you agree to Stripe's terms of service.
+*   **Subscription Plans:** We offer the following plans:
+    *   **15-Day Trial:** A one-time payment of $0.50 USD for 15 days of full access. After this period, access will be paused unless you subscribe to a monthly or yearly plan.
+    *   **Monthly Subscription:** A recurring payment of $4.00 USD per month.
+    *   **Yearly Subscription:** A recurring payment of $40.00 USD per year.
+*   **Automatic Renewal:** Monthly and Yearly subscriptions will automatically renew at the end of each billing cycle unless you cancel your subscription before the renewal date. You can manage your subscription through the customer portal provided after your purchase.
+*   **Refunds:** All payments are non-refundable. If you cancel a subscription, you will retain access to the paid features until the end of your current billing period.
+*   **Price Changes:** We reserve the right to change our subscription prices at any time. We will provide you with reasonable prior notice of any price changes.
+
+---
+
+**(SECCIONES RE-NUMERADAS)**
+## 5. Privacy Policy
+
+### Information We Collect (Server-Side)
+This policy details the limited information we collect on our servers. It does not cover data stored on your client machine (see Section 3).
+*   **Account Information:** When you register, we collect and store your email address and a hashed version of your password.
+*   **Subscription Status:** We store information about your subscription status (e.g., active, inactive, trial) provided by our payment processor, Stripe.
 
 ### How We Use Your Information
+*   To authenticate you and manage your access to the Service.
+*   To manage your subscription status.
+*   To communicate with you about your account or important updates to the Service.
 
-*   To provide, maintain, and improve the Service.
-*   To manage your account and provide you with customer support.
-*   To communicate with you about your account or updates to the Service.
-*   To process payments for subscriptions through our payment processor (Stripe).
+### Data Protection
+We implement industry-standard security measures to protect the limited account information we store. However, no method of transmission over the Internet is 100% secure.
 
-### Data Protection and Security
+## 6. Limitation of Liability
 
-We implement industry-standard security measures to protect your information. Your API keys and account password are encrypted in our database. However, no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.
+To the maximum extent permitted by applicable law, in no event shall TTS Scriptor be liable for any indirect, punitive, incidental, special, consequential, or exemplary damages, including damages for loss of profits, goodwill, data, or other intangible losses, arising out of or relating to the use of, or inability to use, this Service. This includes, but is not limited to, any loss of data from your local machine or any charges incurred from third-party API providers.
 
-### Data Sharing
+The Service is provided on an "AS IS" and "AS AVAILABLE" basis.
 
-We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties, except:
+## 7. Termination
 
-*   To trusted third parties who assist us in operating our Service (e.g., payment processors like Stripe), so long as those parties agree to keep this information confidential.
-*   To comply with the law, enforce our site policies, or protect ours or others' rights, property, or safety.
+We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including if you breach the Terms.
 
-## 5. Limitation of Liability
+## 8. Changes to Terms
 
-To the maximum extent permitted by applicable law, in no event shall TTS Scriptor, its affiliates, agents, directors, or employees, be liable for any indirect, punitive, incidental, special, consequential, or exemplary damages, including without limitation damages for loss of profits, goodwill, use, data, or other intangible losses, arising out of or relating to the use of, or inability to use, this Service.
+We reserve the right to modify or replace these Terms at any time. We will provide notice of any changes by posting the new Terms on this page. By continuing to access our Service after revisions become effective, you agree to be bound by the revised terms.
 
-The Service is provided on an "AS IS" and "AS AVAILABLE" basis. We do not warrant that the service will be uninterrupted, error-free, or completely secure.
-
-## 6. Termination
-
-We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
-
-## 7. Changes to Terms
-
-We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide notice of any changes by posting the new Terms on this page. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.
-
-## 8. Contact Us
+## 9. Contact Us
 
 If you have any questions about these Terms, please contact us at [your-support-email@example.com].
