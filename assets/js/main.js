@@ -1,30 +1,25 @@
-// assets/js/main.js
-
 document.addEventListener('DOMContentLoaded', () => {
-    const langEnBtn = document.getElementById('lang-en');
-    const langEsBtn = document.getElementById('lang-es');
+    const languageSwitcherContainer = document.getElementById('language-switcher-container');
     let currentTranslations = {};
 
-    // Función para cargar el archivo de idioma
+    // --- Lógica Principal de Internacionalización ---
+
+    // 1. Carga el archivo de un idioma específico (ej. en.json)
     async function loadTranslations(lang) {
         try {
             const response = await fetch(`./assets/locales/${lang}.json`);
-            if (!response.ok) {
-                throw new Error(`Could not load ${lang}.json`);
-            }
+            if (!response.ok) throw new Error(`Could not load ${lang}.json`);
             currentTranslations = await response.json();
         } catch (error) {
             console.error('Failed to load translations:', error);
-            // Cargar inglés como fallback en caso de error
-            const fallbackResponse = await fetch('./assets/locales/en.json');
-            currentTranslations = await fallbackResponse.json();
+            // Carga inglés como fallback en caso de error
+            if (lang !== 'en') await loadTranslations('en');
         }
     }
 
-    // Función para aplicar las traducciones a la página
+    // 2. Aplica las traducciones cargadas a los elementos del DOM
     function applyTranslations() {
-        const elements = document.querySelectorAll('[data-translate]');
-        elements.forEach(el => {
+        document.querySelectorAll('[data-translate]').forEach(el => {
             const key = el.getAttribute('data-translate');
             if (currentTranslations[key]) {
                 if (el.tagName === 'META') {
@@ -36,41 +31,68 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Función principal para cambiar de idioma
+    // 3. Función principal que se llama al cambiar de idioma
     async function setLanguage(lang) {
         await loadTranslations(lang);
         applyTranslations();
-        
-        // Actualizar el atributo lang del HTML
         document.documentElement.lang = lang;
-        
-        // Actualizar estilos de los botones
-        if (lang === 'en') {
-            langEnBtn.classList.add('text-white', 'border-b-2', 'border-indigo-500');
-            langEnBtn.classList.remove('text-gray-400');
-            langEsBtn.classList.add('text-gray-400');
-            langEsBtn.classList.remove('text-white', 'border-b-2', 'border-indigo-500');
-        } else {
-            langEsBtn.classList.add('text-white', 'border-b-2', 'border-indigo-500');
-            langEsBtn.classList.remove('text-gray-400');
-            langEnBtn.classList.add('text-gray-400');
-            langEnBtn.classList.remove('text-white', 'border-b-2', 'border-indigo-500');
-        }
-
-        // Guardar preferencia de idioma
         localStorage.setItem('language', lang);
+        
+        // Asegura que el <select> refleje el idioma actual
+        const selector = document.getElementById('language-selector');
+        if (selector) {
+            selector.value = lang;
+        }
     }
 
-    // Añadir listeners a los botones
-    langEnBtn.addEventListener('click', () => setLanguage('en'));
-    langEsBtn.addEventListener('click', () => setLanguage('es'));
-    
-    // Función para inicializar la página
+    // --- Lógica para construir el Selector de Idioma Dinámicamente ---
+
+    // 4. Crea el elemento <select> y lo añade al DOM
+    function buildLanguageSelector(languages, currentLang) {
+        const select = document.createElement('select');
+        select.id = 'language-selector';
+        // Clases de Tailwind para que se vea bien
+        select.className = 'bg-gray-800 border border-gray-700 text-white text-sm rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2';
+
+        languages.forEach(lang => {
+            const option = document.createElement('option');
+            option.value = lang.code;
+            option.textContent = lang.name;
+            if (lang.code === currentLang) {
+                option.selected = true;
+            }
+            select.appendChild(option);
+        });
+
+        select.addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+
+        languageSwitcherContainer.appendChild(select);
+    }
+
+    // --- Inicialización ---
+
+    // 5. Función de arranque que orquesta todo
     async function init() {
-        const savedLang = localStorage.getItem('language') || 'es'; // Default a español
-        await setLanguage(savedLang);
+        try {
+            const response = await fetch('./assets/locales/languages.json');
+            if (!response.ok) throw new Error('Could not load languages.json');
+            const languages = await response.json();
+
+            const savedLang = localStorage.getItem('language') || 'es'; // Default a español
+            
+            // Construye el selector y luego establece el idioma inicial
+            buildLanguageSelector(languages, savedLang);
+            await setLanguage(savedLang);
+
+        } catch (error) {
+            console.error('Initialization failed:', error);
+            // Muestra un error simple si no se pueden cargar los idiomas
+            languageSwitcherContainer.innerHTML = '<span class="text-red-400 text-sm">Error loading languages</span>';
+        }
     }
 
-    // Iniciar la aplicación
+    // ¡Arrancamos!
     init();
 });
